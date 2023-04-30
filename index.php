@@ -1,3 +1,7 @@
+<?php  $task = 'backlog'
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -138,6 +142,7 @@
               </h3>
             </div>
             <div class="card-body connectedSortable" data-status="backlog">
+                <?php if($task == 'backlog') : ?>
               <div class="card card-info card-outline" data-task-id="1">
                 <div class="card-header">
                   <h5 class="card-title">Зробити головну</h5>
@@ -159,6 +164,7 @@
                   <small class="badge badge-danger"><i class="far fa-clock"></i> 2 mins</small>
                 </div>
               </div>
+                <?php endif ?>
             </div>
           </div>
           <div class="card card-row card-primary">
