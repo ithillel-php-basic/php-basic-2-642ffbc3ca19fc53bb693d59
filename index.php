@@ -1,32 +1,6 @@
 <?php
 $task = 'backlog';
 $category = ["Вхідні", 'Навчання', 'Робота', 'Домашні справи', 'Авто'];
-
-//$date = [01/.07/.2023, 25/.07/.2023, 27/.07/.2023, 14/.05/.2023, null , null];
-//$status = ['backlog', "backlog", 'done', 'to-do', 'in-progress', 'to-do'];
-//$tasks = ['Співбесіда в IT компанії', "Виконати тестове завдання", 'Зробити завдання до першого уроку', 'Зустрітись з друзями', 'Купити корм для кота', 'Замовити піцу'];
-
-//$info = [
-//        [
-//            'Співбесіда в IT компанію', 01/.07/.2023, 'Робота', 'backlog'
-//        ],
-//        [
-//            'Виконати тестове завдання', 25/.07/.2023, 'Робота', 'backlog'
-//        ],
-//        [
-//            'Зробити завдання до першого уроку', 27/.04/.2023, 'Навчання', 'done'
-//        ],
-//        [
-//            'Зустрітись з друзями', 14/.05/.2023, 'Вхідні', 'to-do'
-//        ],
-//        [
-//            'Купити корм для кота', null, 'Домашні справи', 'in-progress'
-//        ],
-//        [
-//            'Замовити піцу', null, 'Домашні справи', 'to-do'
-//        ]
-//
-//]
 $info = [
     [
         'task' => 'Співбесіда в IT компанію',
@@ -61,8 +35,6 @@ $info = [
         'status' => 'to-do',
     ],
 ]
-
-
 ?>
 
 <!DOCTYPE html>
@@ -142,33 +114,14 @@ $info = [
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">
-                    <?php foreach ($info as $el): ?>
+                    <?php foreach ($category as $el): ?>
                         <li class="nav-item">
                             <a href="index.php" class="nav-link active">
                                 <i class="nav-icon fas fa-columns"></i>
-                                <p><?=$el['task']?><span class="badge badge-info right">2</span></p>
+                                <p><?=$el?><span class="badge badge-info right">2</span></p>
                             </a>
                         </li>
                     <?php endforeach; ?>
-                    <!-- Add icons to the links using the .nav-icon class
-                       with font-awesome or any other icon font library -->
-                    <li class="nav-item">
-                        <a href="index.php" class="nav-link active">
-                            <i class="nav-icon fas fa-columns"></i>
-                            <p>
-                                Назва проекту
-                                <span class="badge badge-info right">2</span>
-                            </p>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="index.php" class="nav-link bg-olive">
-                            <i class="nav-icon fas fa-plus"></i>
-                            <p>
-                                Додати проект
-                            </p>
-                        </a>
-                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
