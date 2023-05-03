@@ -1,6 +1,6 @@
 <?php
 $task = 'backlog';
-$category = ["Вхідні", 'Навчання', 'Робота', 'Домашні справи', 'Авто'];
+$category = ['Вхідні', 'Навчання', 'Робота', 'Домашні справи', 'Авто'];
 $info = [
     [
         'task' => 'Співбесіда в IT компанію',
@@ -15,7 +15,7 @@ $info = [
     ], [
         'task' => 'Зробити завдання до першого уроку',
         'date' => '27/.04/.2023',
-        'category' => 'Навчанння',
+        'category' => 'Навчання',
         'status' => 'done',
     ], [
         'task' => 'Зустрітись з друзями',
@@ -34,7 +34,18 @@ $info = [
         'category' => 'Домашні справи',
         'status' => 'to-do',
     ],
-]
+];
+
+function tasksum($array,$projectname ) {
+    $number = 0;
+    foreach($array as $el) {
+        if($el['category'] === $projectname ) {
+            $number += 1;
+        }
+    }
+
+    echo $number;
+}
 ?>
 
 <!DOCTYPE html>
@@ -118,10 +129,18 @@ $info = [
                         <li class="nav-item">
                             <a href="index.php" class="nav-link active">
                                 <i class="nav-icon fas fa-columns"></i>
-                                <p><?=$el?><span class="badge badge-info right">2</span></p>
+                                <p><?=$el?><span class="badge badge-info right"><?=tasksum($info, $el);?></span></p>
                             </a>
                         </li>
                     <?php endforeach; ?>
+                    <li class="nav-item">
+                        <a href="index.php" class="nav-link bg-olive">
+                            <i class="nav-icon fas fa-plus"></i>
+                            <p>
+                                Додати проект
+                            </p>
+                        </a>
+                    </li>
                 </ul>
             </nav>
             <!-- /.sidebar-menu -->
