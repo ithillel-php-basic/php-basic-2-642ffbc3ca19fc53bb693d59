@@ -54,7 +54,7 @@
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <?php date_calculating(htmlspecialchars($item['date']))?>
+                                    <?=date_calculating(htmlspecialchars($item['date']))?>
                                 </div>
                             </div>
                         <?php endif?>
@@ -87,7 +87,7 @@
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <?php date_calculating(htmlspecialchars($item['date']))?>
+                                    <?=date_calculating(htmlspecialchars($item['date']))?>
                                 </div>
                             </div>
                         <?php endif?>
@@ -120,7 +120,7 @@
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <?php date_calculating(htmlspecialchars($item['date']))?>
+                                    <?=date_calculating(htmlspecialchars($item['date']))?>
                                 </div>
                             </div>
                         <?php endif?>
@@ -153,7 +153,7 @@
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <?php date_calculating(htmlspecialchars($item['date']))?>
+                                    <?=date_calculating(htmlspecialchars($item['date']))?>
                                 </div>
                             </div>
                         <?php endif?>

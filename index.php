@@ -70,7 +70,6 @@ function taskSum( array $array, string $projectName): int
 $kanban_template = renderTemplate(
      'kanban.php',
      ['info' => $info,
-      'date_calculating($date)' => 'date_calculating($date)',
          ]);
 
 $main_content =renderTemplate('main.php', [
