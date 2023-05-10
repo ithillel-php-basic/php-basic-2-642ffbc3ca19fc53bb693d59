@@ -7,22 +7,22 @@ $title_name = 'Завдання та проекти | Дошка';
 $info = [
     [
         'task' => 'Співбесіда в IT компанію',
-        'date' => '01/.07/.2023',
+        'date' => '01.07.2023',
         'category' => 'Робота',
         'status' => 'backlog',
     ], [
         'task' => 'Виконати тестове завдання',
-        'date' => '25/.07/.2023',
+        'date' => '25.07.2023',
         'category' => 'Робота',
         'status' => 'backlog',
     ], [
         'task' => 'Зробити завдання до першого уроку',
-        'date' => '27/.04/.2023',
+        'date' => '27.04.2023',
         'category' => 'Навчання',
         'status' => 'done',
     ], [
         'task' => 'Зустрітись з друзями',
-        'date' => '14/.05/.2023',
+        'date' => '11.05.2023',
         'category' => 'Вхідні',
         'status' => 'to-do',
     ], [
@@ -33,7 +33,7 @@ $info = [
     ],
     [
         'task' => 'Замовити піцу',
-        'date' => 'null',
+        'date' => '11.05.2023',
         'category' => 'Домашні справи',
         'status' => 'to-do',
     ],
@@ -66,4 +66,4 @@ $layout_template = renderTemplate('layout.php',
      'title_name' => $title_name,
     ]);
 
-print_r($layout_template);
+echo ($layout_template);
