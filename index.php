@@ -66,4 +66,4 @@ $layout_template = renderTemplate('layout.php',
      'title_name' => $title_name,
     ]);
 
-echo ($layout_template);
+print_r($layout_template);
