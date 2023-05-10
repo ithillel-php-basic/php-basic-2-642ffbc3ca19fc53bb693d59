@@ -39,7 +39,6 @@ $info = [
         'status' => 'to-do',
     ],
 ];
-
 $kanban_template = renderTemplate(
      'kanban.php',
      ['info' => $info]);
@@ -55,5 +54,4 @@ $layout_template = renderTemplate('layout.php',
     ['body' => $main_content,
      'title_name' => $title_name,
     ]);
-
 echo($layout_template);
