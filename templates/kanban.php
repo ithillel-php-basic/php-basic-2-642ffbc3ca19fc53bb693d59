@@ -1,22 +1,3 @@
-<?php
-
-function date_calculating($date) {
-    if($date === 'null') { return '';}
-
-    $current_date = time();
-    $hour = 3600;
-
-    $transfered_date = strtotime($date);
-
-    $difference = floor(($transfered_date - $current_date) / $hour);
-    $difference_day = floor($difference / 24);
-    if($difference <= 24) {
-        echo '<small class="badge badge-danger"><i class="far fa-clock"></i>'.str_pad($difference, strlen($difference) + 11 ,"Годин:",STR_PAD_LEFT).'</small>';
-    } else {echo '<small class="badge badge-success"><i class="far fa-clock"></i>'.str_pad($difference_day, strlen($difference_day) +9,"Днів:",STR_PAD_LEFT).'</small>';}
-}
-
-?>
-
 <div class="content-wrapper kanban">
     <section class="content-header">
         <div class="container-fluid">
