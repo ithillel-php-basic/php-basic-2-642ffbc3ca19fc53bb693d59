@@ -1,5 +1,6 @@
 <?php
 require_once 'helpers.php';
+require_once 'functions.php';
 $user_name = 'Володимир';
 $user_image = 'static/img/user2-160x160.jpg';
 $category = ['Вхідні', 'Навчання', 'Робота', 'Домашні справи', 'Авто'];
@@ -7,22 +8,22 @@ $title_name = 'Завдання та проекти | Дошка';
 $info = [
     [
         'task' => 'Співбесіда в IT компанію',
-        'date' => '01/.07/.2023',
+        'date' => '01.07.2023',
         'category' => 'Робота',
         'status' => 'backlog',
     ], [
         'task' => 'Виконати тестове завдання',
-        'date' => '25/.07/.2023',
+        'date' => '25.07.2023',
         'category' => 'Робота',
         'status' => 'backlog',
     ], [
         'task' => 'Зробити завдання до першого уроку',
-        'date' => '27/.04/.2023',
+        'date' => '27.04.2023',
         'category' => 'Навчання',
         'status' => 'done',
     ], [
         'task' => 'Зустрітись з друзями',
-        'date' => '14/.05/.2023',
+        'date' => '11.05.2023',
         'category' => 'Вхідні',
         'status' => 'to-do',
     ], [
@@ -33,23 +34,11 @@ $info = [
     ],
     [
         'task' => 'Замовити піцу',
-        'date' => 'null',
+        'date' => '11.05.2023',
         'category' => 'Домашні справи',
         'status' => 'to-do',
     ],
 ];
-
-function taskSum( array $array, string $projectName): int
-{
-    $number = 0;
-    foreach ($array as $el) {
-        if ($el['category'] === $projectName) {
-            $number += 1;
-        }
-    }
-    return $number;
-}
-
 $kanban_template = renderTemplate(
      'kanban.php',
      ['info' => $info]);
@@ -65,5 +54,4 @@ $layout_template = renderTemplate('layout.php',
     ['body' => $main_content,
      'title_name' => $title_name,
     ]);
-
-print_r($layout_template);
+echo($layout_template);

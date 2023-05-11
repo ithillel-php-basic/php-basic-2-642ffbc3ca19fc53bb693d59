@@ -54,7 +54,7 @@
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <small class="badge badge-danger"><i class="far fa-clock"></i><?=htmlspecialchars($item['date'])?></small>
+                                    <?=date_calculating(htmlspecialchars($item['date']))?>
                                 </div>
                             </div>
                         <?php endif?>
@@ -87,7 +87,7 @@
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <small class="badge badge-danger"><i class="far fa-clock"></i><?=htmlspecialchars($item['date'])?></small>
+                                    <?=date_calculating(htmlspecialchars($item['date']))?>
                                 </div>
                             </div>
                         <?php endif?>
@@ -120,7 +120,7 @@
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <small class="badge badge-danger"><i class="far fa-clock"></i><?=htmlspecialchars($item['date'])?></small>
+                                    <?=date_calculating(htmlspecialchars($item['date']))?>
                                 </div>
                             </div>
                         <?php endif?>
@@ -153,7 +153,7 @@
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <small class="badge badge-danger"><i class="far fa-clock"></i><?=htmlspecialchars($item['date'])?></small>
+                                    <?=date_calculating(htmlspecialchars($item['date']))?>
                                 </div>
                             </div>
                         <?php endif?>
