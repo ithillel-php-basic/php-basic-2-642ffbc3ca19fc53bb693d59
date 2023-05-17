@@ -1,5 +1,6 @@
 <?php
 require_once 'helpers.php';
+require_once 'schema.sql';
 require_once 'functions.php';
 $user_name = 'Володимир';
 $user_image = 'static/img/user2-160x160.jpg';
