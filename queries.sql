@@ -1,5 +1,5 @@
 -- Додавання юзерів
-INSERT INTO `projects_and_work`.`users`(`name`,`email`,`password`);
+INSERT INTO `projects_and_work`.`users`(`name`,`email`,`password`)
 VALUES (
         'Andrew',
         'drew1997@gmail.com',
@@ -13,9 +13,9 @@ VALUES (
            'Samantha',
         'dolphine@gmail.com',
         'superuniquepassword123456789-1'
-       )
+       );
 -- Внесення проектів у базу
-INSERT INTO `projects_and_work`.`projects`(`title`,`user_id`);
+INSERT INTO `projects_and_work`.`projects`(`title`,`user_id`)
 Values ('Вхідні',1),
         ('Навчання',1),
         ('Робота',1),
@@ -23,7 +23,7 @@ Values ('Вхідні',1),
         ('Авто',1);
 
 -- Внесення в таблицю завдань
-INSERT INTO `projects_and_work`.work(`title`,`project_id`,`deadline`,`status`,`user_id`,);
+INSERT INTO `projects_and_work`.work(`title`,`project_id`,`deadline`,`status`,`user_id`)
 VALUE ('Співбесіда в IT компанії',3,'01.07.2023','backlog',1),
     ('Виконати тестове завдання',3,'25.07.2023','backlog',1),
     ('Зробити завдання до першого уроку',2,'27.04.2023','done',1),
@@ -33,30 +33,30 @@ VALUE ('Співбесіда в IT компанії',3,'01.07.2023','backlog',1)
 
 -- Запити в БД
 -- Список проектів для користувача
-SELECT project.id,project.title, user.name;
-FROM `projects_and_work`.`projects` AS project;
-LEFT JOIN `projects_and_work`.`users` AS user;
+SELECT project.id,project.title, user.name
+FROM `projects_and_work`.`projects` AS project
+LEFT JOIN `projects_and_work`.`users` AS user
 ON project.user_id = user.id
 WHERE project.user_id = 1;
 
 -- Отримання списку всіх завдань для для одного проєкту
 SELECT work.id, work.title, work.description, project.title, work.deadline, work.file, work.status
-FROM `tasks_and_projects`.`work` AS work
-         LEFT JOIN `tasks_and_projects`.`projects` AS project
+FROM `projects_and_work`.`work` AS work
+         LEFT JOIN `projects_and_work`.`projects` AS project
                    ON work.project_id = project.id
 WHERE project.id = 4 AND work.user_id = 1;
 
 -- Оновлення статусу на to-do
-UPDATE `tasks_and_projects`.`tasks`
+UPDATE `projects_and_work`.`work`
 SET `status` = 'to-do'
 WHERE id = 1;
 
 -- Оновлення статусу на done
-UPDATE `tasks_and_projects`.`tasks`
+UPDATE `projects_and_work`.`work`
 SET `status` = 'done'
 WHERE id = 4;
 
 -- Оновлена назва завдання по ідентифікатору
-UPDATE `tasks_and_projects`.`tasks`
+UPDATE `projects_and_work`.`work`
 SET `title` = 'Зробити завдання до сьомого уроку'
 WHERE id = 3;

@@ -1,6 +1,21 @@
 <?php
 require_once 'helpers.php';
 require_once 'functions.php';
+
+$servername = "localhost";
+$username = "Fursov Dmytro";
+$password = "YES";
+$dbname = "projects_and_work";
+
+$conn = new mysqli($servername, $username, $dbname);
+
+if ($conn->connect_error) {
+    die("Ошибка подключения: " . $conn->connect_error);
+}
+
+
+
+
 $user_name = 'Володимир';
 $user_image = 'static/img/user2-160x160.jpg';
 $category = ['Вхідні', 'Навчання', 'Робота', 'Домашні справи', 'Авто'];
