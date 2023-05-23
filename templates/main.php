@@ -52,14 +52,16 @@
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">
-                    <?php foreach ($category as $el): ?>
+                    <?php if($projects):?>
+                    <?php foreach ($projects as $key => $value): ?>
                         <li class="nav-item">
                             <a href="index.php" class="nav-link active">
                                 <i class="nav-icon fas fa-columns"></i>
-                                <p><?=$el?><span class="badge badge-info right"><?=taskSum($info, $el)?></span></p>
+                                <p><?=$value['title']?><span class="badge badge-info right"><?=taskSum($projects, $value['title'])?></span></p>
                             </a>
                         </li>
                     <?php endforeach; ?>
+                    <?php endif; ?>
                     <li class="nav-item">
                         <a href="index.php" class="nav-link bg-olive">
                             <i class="nav-icon fas fa-plus"></i>

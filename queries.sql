@@ -5,15 +5,15 @@ VALUES (
         'drew1997@gmail.com',
         '1234567890home'
        ),
-       (
-           'Max',
+       (    'Max',
            'maximum_power@yahoo.com',
            'aqwgnkefwmgmrgksf3311_'),
        (
            'Samantha',
         'dolphine@gmail.com',
         'superuniquepassword123456789-1'
-       );
+       )
+       ;
 -- Внесення проектів у базу
 INSERT INTO `projects_and_work`.`projects`(`title`,`user_id`)
 Values ('Вхідні',1),
@@ -24,12 +24,15 @@ Values ('Вхідні',1),
 
 -- Внесення в таблицю завдань
 INSERT INTO `projects_and_work`.work(`title`,`project_id`,`deadline`,`status`,`user_id`)
-VALUE ('Співбесіда в IT компанії',3,'01.07.2023','backlog',1),
+VALUE
+    ('Співбесіда в IT компанії',3,'01.07.2023','backlog',1),
     ('Виконати тестове завдання',3,'25.07.2023','backlog',1),
     ('Зробити завдання до першого уроку',2,'27.04.2023','done',1),
     ('Зустрітись з друзями',1,'25.07.2023','to-do',1),
-    ('Купити корм для кота',4,null,'in-progress',1),
-    ('Замовити піцу',4,null,'to-do',1);
+    ('Купити корм для кота',4,'null','in-progress',1),
+    ('Замовити піцу',4,'null','to-do',1),
+    ('Відпочити на природі',4,'null','to-do',1),
+    ('Погасити відсоток по кредиту',1,'26.08.2023','in-progress',1);
 
 -- Запити в БД
 -- Список проектів для користувача

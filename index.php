@@ -2,68 +2,52 @@
 require_once 'helpers.php';
 require_once 'functions.php';
 
-$servername = "localhost";
-$username = "Fursov Dmytro";
-$password = "YES";
-$dbname = "projects_and_work";
 
-$conn = new mysqli($servername, $username, $dbname);
+function connect_to_mysql_db(){
+    mysqli_report(MYSQLI_REPORT_OFF);
 
-if ($conn->connect_error) {
-    die("Ошибка подключения: " . $conn->connect_error);
+    $link = mysqli_connect("localhost", "root", "Defaut23322332k", "projects_and_work");
+
+    if ($link === false){
+
+        print("Ошибка: Не вдається підключитися до MySQL: " . mysqli_connect_error());
+
+    }
+
+    mysqli_set_charset($link, 'utf8mb4');
+
+    return $link;
 }
 
+$link= connect_to_mysql_db();
 
+
+
+//$sql_projects = "SELECT * FROM projects_and_work.projects pp LEFT JOIN projects_and_work.users pu ON pp.user_id = 1";
+$sql_projects = "SELECT projects_and_work.projects.title FROM projects_and_work.projects  WHERE user_id = 1";
+//$sql_projects = "SELECT * FROM projects AS project LEFT JOIN users AS user ON user.user_id = '%user_id'";
+$query_to_projects = mysqli_query($link , $sql_projects);
+$projects = mysqli_fetch_all($query_to_projects, MYSQLI_ASSOC);
+
+//$sql_work = "SELECT projects_and_work.work FROM projects_and_work.work WHERE user_id = 1";
+$sql_work1 = "SELECT work.* FROM projects_and_work.work AS work RIGHT JOIN projects_and_work.users AS user ON work.user_id = user.id = 1";
+$work_query = mysqli_query($link,$sql_work1);
+$work = $work_query ? mysqli_fetch_all($work_query, MYSQLI_ASSOC) : false;
 
 
 $user_name = 'Володимир';
 $user_image = 'static/img/user2-160x160.jpg';
-$category = ['Вхідні', 'Навчання', 'Робота', 'Домашні справи', 'Авто'];
 $title_name = 'Завдання та проекти | Дошка';
-$info = [
-    [
-        'task' => 'Співбесіда в IT компанію',
-        'date' => '01.07.2023',
-        'category' => 'Робота',
-        'status' => 'backlog',
-    ], [
-        'task' => 'Виконати тестове завдання',
-        'date' => '25.07.2023',
-        'category' => 'Робота',
-        'status' => 'backlog',
-    ], [
-        'task' => 'Зробити завдання до першого уроку',
-        'date' => '27.04.2023',
-        'category' => 'Навчання',
-        'status' => 'done',
-    ], [
-        'task' => 'Зустрітись з друзями',
-        'date' => '11.05.2023',
-        'category' => 'Вхідні',
-        'status' => 'to-do',
-    ], [
-        'task' => 'Купити корм для кота',
-        'date' => 'null',
-        'category' => 'Домашні справи',
-        'status' => 'in-progress',
-    ],
-    [
-        'task' => 'Замовити піцу',
-        'date' => '11.05.2023',
-        'category' => 'Домашні справи',
-        'status' => 'to-do',
-    ],
-];
 $kanban_template = renderTemplate(
      'kanban.php',
-     ['info' => $info]);
+     ['work' => $work]);
 
 $main_content =renderTemplate('main.php', [
     'wrapper_content'=> $kanban_template,
-    'info' => $info,
+    'work' => $work,
     'user_name'=> $user_name,
     'user_image'=> $user_image,
-    'category' => $category]);
+    'projects' => $projects]);
 
 $layout_template = renderTemplate('layout.php',
     ['body' => $main_content,

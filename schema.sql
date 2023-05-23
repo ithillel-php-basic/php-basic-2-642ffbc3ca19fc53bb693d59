@@ -28,8 +28,7 @@ CREATE TABLE `projects_and_work`.`work`
     `user_id`     INT          NOT NULL,
     FOREIGN KEY (`user_id`) REFERENCES users (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
     `project_id`  INT          DEFAULT 1,
-    `deadline`    DATE NULL,
-    FOREIGN KEY (`project_id`) REFERENCES `projects` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
+    `deadline`    DATE DEFAULT NULL,
     `created_at`  TIMESTAMP    NOT NULL DEFAULT CURRENT_TIMESTAMP,
     PRIMARY KEY (`id`),
     INDEX(`status`)

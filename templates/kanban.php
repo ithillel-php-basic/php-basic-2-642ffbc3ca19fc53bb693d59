@@ -35,11 +35,11 @@
                     </h3>
                 </div>
                 <div class="card-body connectedSortable" data-status="backlog">
-                    <?php foreach ($info as $key => $item): ?>
+                    <?php foreach ($work as $key => $item): ?>
                         <?php if($item['status'] === 'backlog'):?>
                             <div class="card card-info card-outline" data-task-id="1">
                                 <div class="card-header">
-                                    <h5 class="card-title"><?=htmlspecialchars($item['category'])?></h5>
+                                    <h5 class="card-title"><?=htmlspecialchars($item['id'])?></h5>
                                     <div class="card-tools">
                                         <a href="#" class="btn btn-tool btn-link">#3</a>
                                         <a href="#" class="btn btn-tool">
@@ -49,12 +49,12 @@
                                 </div>
                                 <div class="card-body">
                                     <p>
-                                        <?=htmlspecialchars($item['task'])?>
+                                        <?=htmlspecialchars($item['title'])?>
                                     </p>
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <?=date_calculating(htmlspecialchars($item['date']))?>
+                                    <?=date_calculating(htmlspecialchars($item['deadline']))?>
                                 </div>
                             </div>
                         <?php endif?>
@@ -68,11 +68,11 @@
                     </h3>
                 </div>
                 <div class="card-body connectedSortable" data-status="to-do">
-                    <?php foreach ($info as $key => $item): ?>
+                    <?php foreach ($work as $key => $item): ?>
                         <?php if($item['status'] === 'to-do'):?>
                             <div class="card card-info card-outline" data-task-id="1">
                                 <div class="card-header">
-                                    <h5 class="card-title"><?=htmlspecialchars($item['category'])?></h5>
+                                    <h5 class="card-title"><?=htmlspecialchars($item['id'])?></h5>
                                     <div class="card-tools">
                                         <a href="#" class="btn btn-tool btn-link">#3</a>
                                         <a href="#" class="btn btn-tool">
@@ -82,12 +82,12 @@
                                 </div>
                                 <div class="card-body">
                                     <p>
-                                        <?=htmlspecialchars($item['task'])?>
+                                        <?=htmlspecialchars($item['title'])?>
                                     </p>
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <?=date_calculating(htmlspecialchars($item['date']))?>
+                                    <?= date_calculating($item['deadline'])?>
                                 </div>
                             </div>
                         <?php endif?>
@@ -101,11 +101,11 @@
                     </h3>
                 </div>
                 <div class="card-body connectedSortable" data-status="in-progress">
-                    <?php foreach ($info as $key => $item): ?>
+                    <?php foreach ($work as $key => $item): ?>
                         <?php if($item['status'] === 'in-progress'):?>
                             <div class="card card-info card-outline" data-task-id="1">
                                 <div class="card-header">
-                                    <h5 class="card-title"><?=htmlspecialchars($item['category'])?></h5>
+                                    <h5 class="card-title"><?=htmlspecialchars($item['id'])?></h5>
                                     <div class="card-tools">
                                         <a href="#" class="btn btn-tool btn-link">#3</a>
                                         <a href="#" class="btn btn-tool">
@@ -115,12 +115,12 @@
                                 </div>
                                 <div class="card-body">
                                     <p>
-                                        <?=htmlspecialchars($item['task'])?>
+                                        <?=htmlspecialchars($item['title'])?>
                                     </p>
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <?=date_calculating(htmlspecialchars($item['date']))?>
+                                    <?=date_calculating($item['deadline'])?>
                                 </div>
                             </div>
                         <?php endif?>
@@ -134,11 +134,11 @@
                     </h3>
                 </div>
                 <div class="card-body connectedSortable" data-status="done">
-                    <?php foreach ($info as $key => $item): ?>
+                    <?php foreach ($work as $key => $item): ?>
                         <?php if($item['status'] === 'done'):?>
                             <div class="card card-info card-outline" data-task-id="1">
                                 <div class="card-header">
-                                    <h5 class="card-title"><?=htmlspecialchars($item['category'])?></h5>
+                                    <h5 class="card-title"><?=htmlspecialchars($item['id'])?></h5>
                                     <div class="card-tools">
                                         <a href="#" class="btn btn-tool btn-link">#3</a>
                                         <a href="#" class="btn btn-tool">
@@ -148,12 +148,12 @@
                                 </div>
                                 <div class="card-body">
                                     <p>
-                                        <?=htmlspecialchars($item['task'])?>
+                                        <?=htmlspecialchars($item['title'])?>
                                     </p>
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <?=date_calculating(htmlspecialchars($item['date']))?>
+                                    <?=date_calculating(htmlspecialchars($item['deadline']))?>
                                 </div>
                             </div>
                         <?php endif?>
