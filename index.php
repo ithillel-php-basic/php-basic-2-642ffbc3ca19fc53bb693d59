@@ -2,7 +2,6 @@
 require_once 'helpers.php';
 require_once 'functions.php';
 
-
 function connect_to_mysql_db(){
     mysqli_report(MYSQLI_REPORT_OFF);
 
@@ -33,6 +32,7 @@ $projects = mysqli_fetch_all($query_to_projects, MYSQLI_ASSOC);
 $sql_work1 = "SELECT work.* FROM projects_and_work.work AS work RIGHT JOIN projects_and_work.users AS user ON work.user_id = user.id = 1";
 $work_query = mysqli_query($link,$sql_work1);
 $work = $work_query ? mysqli_fetch_all($work_query, MYSQLI_ASSOC) : false;
+
 
 
 $user_name = 'Володимир';
