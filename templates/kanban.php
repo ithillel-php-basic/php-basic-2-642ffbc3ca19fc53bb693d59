@@ -1,3 +1,4 @@
+<!--$tasks-->
 <div class="content-wrapper kanban">
     <section class="content-header">
         <div class="container-fluid">
@@ -11,6 +12,7 @@
                     </ol>
                 </div>
             </div>
+            <?php if ($tasks): ?>
             <div class="row">
                 <div class="col-md-4 offset-md-4">
                     <div class="row">
@@ -23,9 +25,10 @@
                     </div>
                 </div>
             </div>
+            <?php endif ?>
         </div>
     </section>
-
+    <?php if ($tasks): ?>
     <section class="content pb-3">
         <div class="container-fluid h-100">
             <div class="card card-row card-secondary">
@@ -35,7 +38,7 @@
                     </h3>
                 </div>
                 <div class="card-body connectedSortable" data-status="backlog">
-                    <?php foreach ($work as $key => $item): ?>
+                    <?php foreach ($tasks as $key => $item): ?>
                         <?php if($item['status'] === 'backlog'):?>
                             <div class="card card-info card-outline" data-task-id="1">
                                 <div class="card-header">
@@ -68,8 +71,8 @@
                     </h3>
                 </div>
                 <div class="card-body connectedSortable" data-status="to-do">
-                    <?php foreach ($work as $key => $item): ?>
-                        <?php if($item['status'] === 'to-do'):?>
+                    <?php foreach ($tasks as $key => $item): ?>
+                        <?php if($item['status'] == 'to-do'):?>
                             <div class="card card-info card-outline" data-task-id="1">
                                 <div class="card-header">
                                     <h5 class="card-title"><?=htmlspecialchars($item['id'])?></h5>
@@ -101,7 +104,7 @@
                     </h3>
                 </div>
                 <div class="card-body connectedSortable" data-status="in-progress">
-                    <?php foreach ($work as $key => $item): ?>
+                    <?php foreach ($tasks as $key => $item): ?>
                         <?php if($item['status'] === 'in-progress'):?>
                             <div class="card card-info card-outline" data-task-id="1">
                                 <div class="card-header">
@@ -134,7 +137,7 @@
                     </h3>
                 </div>
                 <div class="card-body connectedSortable" data-status="done">
-                    <?php foreach ($work as $key => $item): ?>
+                    <?php foreach ($tasks as $key => $item): ?>
                         <?php if($item['status'] === 'done'):?>
                             <div class="card card-info card-outline" data-task-id="1">
                                 <div class="card-header">
@@ -162,4 +165,11 @@
             </div>
         </div>
     </section>
+    <?php else: ?>
+        <section class="content pb-3 d-flex align-items-center">
+            <div class="container-fluid">
+                <?= (!is_null($tasks) ? '<span class="text-muted">У базі данних не знайдено жодного завдання за вказаним проектом</span>' : '<span class="text-muted">Вказаного ID проекту не знайдено у базі данних</span>') ?>
+            </div>
+        </section>
+    <?php endif;?>
 </div>

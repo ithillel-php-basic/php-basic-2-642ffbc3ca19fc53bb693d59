@@ -16,11 +16,11 @@ echo '<small class="badge badge-danger"><i class="far fa-clock"></i>'.str_pad($d
 {echo '<small class="badge badge-success"><i class="far fa-clock"></i>'.str_pad($difference_day, strlen($difference_day) +9,"Днів:",STR_PAD_LEFT).'</small>';}
 }
 
-function taskSum(array $array, string $projectName): int
+function taskSum(array $array, $projectName): int
 {
     $number = 0;
     foreach ($array as $el) {
-        if ($el['title'] === $projectName) {
+        if ($el['id'] === $projectName) {
             $number += 1;
         }
     }
