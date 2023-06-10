@@ -42,7 +42,7 @@
                         <?php if($item['status'] === 'backlog'):?>
                             <div class="card card-info card-outline" data-task-id="1">
                                 <div class="card-header">
-                                    <h5 class="card-title"><?=htmlspecialchars($item['id'])?></h5>
+                                    <h5 class="card-title"><?=htmlspecialchars($item['title'],ENT_QUOTES, 'UTF-8')?></h5>
                                     <div class="card-tools">
                                         <a href="#" class="btn btn-tool btn-link">#3</a>
                                         <a href="#" class="btn btn-tool">
@@ -52,12 +52,12 @@
                                 </div>
                                 <div class="card-body">
                                     <p>
-                                        <?=htmlspecialchars($item['title'])?>
+                                        <?= $item['description'] === null ? " " : htmlspecialchars($item['description'],ENT_QUOTES, 'UTF-8'); ?>
                                     </p>
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <?=date_calculating(htmlspecialchars($item['deadline']))?>
+                                    <?=date_calculating($item['deadline'])?>
                                 </div>
                             </div>
                         <?php endif?>
@@ -75,7 +75,7 @@
                         <?php if($item['status'] == 'to-do'):?>
                             <div class="card card-info card-outline" data-task-id="1">
                                 <div class="card-header">
-                                    <h5 class="card-title"><?=htmlspecialchars($item['id'])?></h5>
+                                    <h5 class="card-title"><?=htmlspecialchars($item['title'],ENT_QUOTES, 'UTF-8')?></h5>
                                     <div class="card-tools">
                                         <a href="#" class="btn btn-tool btn-link">#3</a>
                                         <a href="#" class="btn btn-tool">
@@ -85,12 +85,12 @@
                                 </div>
                                 <div class="card-body">
                                     <p>
-                                        <?=htmlspecialchars($item['title'])?>
+                                        <?=$item['description'] === null ? " " : htmlspecialchars($item['description'],ENT_QUOTES, 'UTF-8');?>
                                     </p>
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <?= date_calculating($item['deadline'])?>
+                                    <?=date_calculating($item['deadline'])?>
                                 </div>
                             </div>
                         <?php endif?>
@@ -108,7 +108,7 @@
                         <?php if($item['status'] === 'in-progress'):?>
                             <div class="card card-info card-outline" data-task-id="1">
                                 <div class="card-header">
-                                    <h5 class="card-title"><?=htmlspecialchars($item['id'])?></h5>
+                                    <h5 class="card-title"><?=htmlspecialchars($item['title'],ENT_QUOTES, 'UTF-8')?></h5>
                                     <div class="card-tools">
                                         <a href="#" class="btn btn-tool btn-link">#3</a>
                                         <a href="#" class="btn btn-tool">
@@ -118,7 +118,7 @@
                                 </div>
                                 <div class="card-body">
                                     <p>
-                                        <?=htmlspecialchars($item['title'])?>
+                                        <?= $item['description'] === null ? " " : htmlspecialchars($item['description'],ENT_QUOTES, 'UTF-8');?>
                                     </p>
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
@@ -141,7 +141,7 @@
                         <?php if($item['status'] === 'done'):?>
                             <div class="card card-info card-outline" data-task-id="1">
                                 <div class="card-header">
-                                    <h5 class="card-title"><?=htmlspecialchars($item['id'])?></h5>
+                                    <h5 class="card-title"><?=htmlspecialchars($item['title'],ENT_QUOTES, 'UTF-8')?></h5>
                                     <div class="card-tools">
                                         <a href="#" class="btn btn-tool btn-link">#3</a>
                                         <a href="#" class="btn btn-tool">
@@ -151,12 +151,12 @@
                                 </div>
                                 <div class="card-body">
                                     <p>
-                                        <?=htmlspecialchars($item['title'])?>
+                                        <?= $item['description'] === null ? " " : htmlspecialchars($item['description'],ENT_QUOTES, 'UTF-8');?>
                                     </p>
                                     <a href="#" class="btn btn-tool">
                                         <i class="fas fa-file"></i>
                                     </a>
-                                    <?=date_calculating(htmlspecialchars($item['deadline']))?>
+                                    <?=date_calculating($item['deadline'])?>
                                 </div>
                             </div>
                         <?php endif?>

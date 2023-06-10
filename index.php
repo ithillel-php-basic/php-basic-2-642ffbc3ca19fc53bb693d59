@@ -48,6 +48,11 @@ if (isset($_GET['project_id'])) {
 $user_name = 'Володимир';
 $user_image = 'static/img/user2-160x160.jpg';
 $title_name = 'Завдання та проекти | Дошка';
+
+$addTask = renderTemplate(
+    'add.php', [
+        'projects' => $projects
+    ]);
 $kanban_template = renderTemplate(
      'kanban.php', [
          'tasks' => $tasks,
@@ -59,6 +64,7 @@ $main_content =renderTemplate('main.php', [
     'user_name'=> $user_name,
     'user_image'=> $user_image,
     'projects' => $projects,
+    'add' => $addTask,
      ]
 );
 

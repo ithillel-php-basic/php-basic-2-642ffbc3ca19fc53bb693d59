@@ -23,7 +23,7 @@ CREATE TABLE `projects_and_work`.`work`
     `id`          INT          NOT NULL AUTO_INCREMENT,
     `title`       VARCHAR(255) NOT NULL,
     `status`      VARCHAR(255) NOT NULL DEFAULT 'backlog',
-    `description` TEXT NULL,
+    `description` TEXT NULL DEFAULT ' ',
     `file`        VARCHAR(255) NULL,
     `user_id`     INT          NOT NULL,
     FOREIGN KEY (`user_id`) REFERENCES users (`id`) ON DELETE CASCADE ON UPDATE CASCADE,

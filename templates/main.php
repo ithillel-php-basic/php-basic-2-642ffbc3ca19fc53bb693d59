@@ -40,10 +40,10 @@
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="<?=$user_image ?>" class="img-circle elevation-2" alt="User Image">
+                    <img src="<?=htmlspecialchars($user_image,ENT_QUOTES, 'UTF-8') ?>" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block"><?=$user_name?></a>
+                    <a href="#" class="d-block"><?=htmlspecialchars($user_name,ENT_QUOTES, 'UTF-8') ?></a>
                 </div>
             </div>
             <!-- Sidebar Menu -->
@@ -62,15 +62,15 @@
                     <?php if($projects):?>
                     <?php foreach ($projects as $key => $value): ?>
                         <li class="nav-item">
-                            <a href="/index.php?project_id=<?=$value['id']?> " class="nav-link <?= ((isset($_GET['project_id']) AND ($_GET['project_id'] === $value['id'])) ? ' active' : '') ?>">
+                            <a href="/index.php?project_id=<?=htmlspecialchars($value['id'],ENT_QUOTES, 'UTF-8') ?> " class="nav-link <?= ((isset($_GET['project_id']) AND ($_GET['project_id'] === $value['id'])) ? ' active' : '') ?>">
                                 <i class="nav-icon fas fa-columns"></i>
-                                <p><?=$value['title']?><span class="badge badge-info right"></span></p>
+                                <p><?=htmlspecialchars($value['title'],ENT_QUOTES, 'UTF-8')?><span class="badge badge-info right"></span></p>
                             </a>
                         </li>
                     <?php endforeach; ?>
                     <?php endif; ?>
                     <li class="nav-item">
-                        <a href="/index.php" class="nav-link bg-olive">
+                        <a href="/add.php" class="nav-link bg-olive">
                             <i class="nav-icon fas fa-plus"></i>
                             <p>
                                 Додати проект
