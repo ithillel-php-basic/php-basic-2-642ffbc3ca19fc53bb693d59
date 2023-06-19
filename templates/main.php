@@ -8,10 +8,10 @@
                 <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
             </li>
             <li class="nav-item d-none d-sm-inline-block">
-                <a href="index.php" class="nav-link">Дошка</a>
+                <a href="/index.php" class="nav-link">Дошка</a>
             </li>
             <li class="nav-item bg-primary d-none d-sm-inline-block">
-                <a href="index.php" class="nav-link">Створити задачу</a>
+                <a href="/index.php" class="nav-link">Створити задачу</a>
             </li>
         </ul>
 
@@ -29,39 +29,48 @@
     <!-- Main Sidebar Container -->
     <aside class="main-sidebar sidebar-dark-primary elevation-4">
         <!-- Brand Logo -->
-        <a href="index.php" class="brand-link">
-            <img src="static/img/logo.png" alt="Логотип Завдання та проекти" class="brand-image img-circle elevation-3"
+        <a href="/index.php" class="brand-link">
+            <img src="/static/img/logo.png" alt="Логотип Завдання та проекти" class="brand-image img-circle elevation-3"
                  style="opacity: .8">
             <span class="brand-text font-weight-light">Завдання та проекти</span>
         </a>
 
         <!-- Sidebar -->
-        <!-- Sidebar -->
         <div class="sidebar">
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel mt-3 pb-3 mb-3 d-flex">
                 <div class="image">
-                    <img src="<?=$user_image ?>" class="img-circle elevation-2" alt="User Image">
+                    <img src="<?=htmlspecialchars($user_image,ENT_QUOTES, 'UTF-8') ?>" class="img-circle elevation-2" alt="User Image">
                 </div>
                 <div class="info">
-                    <a href="#" class="d-block"><?=$user_name?></a>
+                    <a href="#" class="d-block"><?=htmlspecialchars($user_name,ENT_QUOTES, 'UTF-8') ?></a>
                 </div>
             </div>
-
             <!-- Sidebar Menu -->
             <nav class="mt-2">
                 <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu"
                     data-accordion="false">
-                    <?php foreach ($category as $el): ?>
+                    <li class="nav-item">
+                        <a href="/" class="nav-link<?= (!isset($_GET['project']) ? ' active' : '') ?>">
+                            <i class="nav-icon fas fa-home"></i>
+                            <p>
+                                Всі проекти
+                                <?= !is_array($projects) ? '' : '<span class="badge badge-danger right">'.count($projects).'</span>' ?>
+                            </p>
+                        </a>
+                    </li>
+                    <?php if($projects):?>
+                    <?php foreach ($projects as $key => $value): ?>
                         <li class="nav-item">
-                            <a href="index.php" class="nav-link active">
+                            <a href="/index.php?project_id=<?=htmlspecialchars($value['id'],ENT_QUOTES, 'UTF-8') ?> " class="nav-link <?= ((isset($_GET['project_id']) AND ($_GET['project_id'] === $value['id'])) ? ' active' : '') ?>">
                                 <i class="nav-icon fas fa-columns"></i>
-                                <p><?=$el?><span class="badge badge-info right"><?=taskSum($info, $el)?></span></p>
+                                <p><?=htmlspecialchars($value['title'],ENT_QUOTES, 'UTF-8')?><span class="badge badge-info right"></span></p>
                             </a>
                         </li>
                     <?php endforeach; ?>
+                    <?php endif; ?>
                     <li class="nav-item">
-                        <a href="index.php" class="nav-link bg-olive">
+                        <a href="/add.php" class="nav-link bg-olive">
                             <i class="nav-icon fas fa-plus"></i>
                             <p>
                                 Додати проект
@@ -94,19 +103,19 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="static/plugins/jquery/jquery.min.js"></script>
+<script src="/static/plugins/jquery/jquery.min.js"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="static/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="/static/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Bootstrap -->
-<script src="static/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="/static/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- Ekko Lightbox -->
-<script src="static/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
+<script src="/static/plugins/ekko-lightbox/ekko-lightbox.min.js"></script>
 <!-- overlayScrollbars -->
-<script src="static/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="/static/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
 <!-- AdminLTE App -->
-<script src="static/js/adminlte.min.js"></script>
+<script src="/static/js/adminlte.min.js"></script>
 <!-- Filterizr-->
-<script src="static/plugins/filterizr/jquery.filterizr.min.js"></script>
+<script src="/static/plugins/filterizr/jquery.filterizr.min.js"></script>
 <!-- Page specific script -->
-<script src="static/js/kanban.js"></script>
+<script src="/static/js/kanban.js"></script>
 </body>
